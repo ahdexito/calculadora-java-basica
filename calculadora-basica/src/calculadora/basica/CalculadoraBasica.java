@@ -15,12 +15,13 @@ public class CalculadoraBasica {
             System.out.println("3. Multiplicación");
             System.out.println("4. División");
 			System.out.println("5. Módulo");
-            System.out.println("6. Salir");
+			System.out.println("6. Potencia");
+            System.out.println("7. Salir");
             System.out.print("Elige una opción: ");
 
             int opcion = scanner.nextInt();
 
-            if (opcion >= 1 && opcion <= 5) {
+            if (opcion >= 1 && opcion <= 6) {
                 System.out.print("Ingresa el primer número: ");
                 double num1 = scanner.nextDouble();
                 System.out.print("Ingresa el segundo número: ");
@@ -50,8 +51,16 @@ public class CalculadoraBasica {
 						else {
 							System.out.println("Error: No se puede dividir entre cero.");
 						}
+						break;
+					case 6:
+						if (num1 > 0 && num2 > 0) {
+							System.out.println("Resultado de la potencia: " + potencia(num1, num2));
+						}
+						else {
+							System.out.println("Error: Los números deben ser mayores que cero.");
+						}
                 }
-            } else if (opcion == 6) {
+            } else if (opcion == 7) {
                 continuar = false;
                 System.out.println("Saliendo de la calculadora...");
             } else {
@@ -67,4 +76,5 @@ public class CalculadoraBasica {
     public static double multiplicar(double a, double b) { return a * b; }
     public static double dividir(double a, double b) { return a / b; }
 	public static double modulo(double a, double b) { return a % b; }
+	public static double potencia(double a, double b) { return Math.pow(a, b); }
 }
